@@ -1,4 +1,4 @@
-package com.gildedrose;
+package com.gildedrose.test;
 
 import static org.junit.Assert.*;
 
@@ -7,6 +7,9 @@ import java.util.List;
 
 import org.junit.Test;
 
+import com.gildedrose.GildedRose;
+import com.gildedrose.ItemType;
+import com.gildedrose.ItemWithType;
 import com.gildedrose.shared.Item;
 
 public class GildedRoseTest {

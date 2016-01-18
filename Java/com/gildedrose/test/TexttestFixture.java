@@ -1,8 +1,11 @@
-package com.gildedrose;
+package com.gildedrose.test;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import com.gildedrose.GildedRose;
+import com.gildedrose.ItemType;
+import com.gildedrose.ItemWithType;
 import com.gildedrose.shared.Item;
 
 public class TexttestFixture {
