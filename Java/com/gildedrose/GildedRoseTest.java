@@ -13,8 +13,8 @@ public class GildedRoseTest {
 
     @Test
     public void testFoo() {
-    	List<Item> items = new ArrayList<Item>();
-        Item item = new Item("foo", 0, 0);
+    	List<ItemWithType> items = new ArrayList<ItemWithType>();
+    	ItemWithType item = new ItemWithType("foo", ItemType.GENERAL, 0, 0);
         items.add(item);
         GildedRose app = new GildedRose(items);
         app.updateQuality();
@@ -23,8 +23,8 @@ public class GildedRoseTest {
     
     @Test
     public void TestQualityImprovementOnceForBrie() {
-    	List<Item> items = new ArrayList<Item>();
-        Item item = new Item("Aged Brie", 0, 0);
+    	List<ItemWithType> items = new ArrayList<ItemWithType>();
+    	ItemWithType item = new ItemWithType("Aged Brie", ItemType.AGEDBRIE, 0, 0);
         items.add(item);
     	GildedRose app = new GildedRose(items);
     	app.updateQuality();
@@ -33,8 +33,8 @@ public class GildedRoseTest {
     
     @Test
     public void TestQualityImprovementForBrieMultiple() {
-    	List<Item> items = new ArrayList<Item>();
-        Item item = new Item("Aged Brie", 0, 0);
+    	List<ItemWithType> items = new ArrayList<ItemWithType>();
+    	ItemWithType item = new ItemWithType("Aged Brie", ItemType.AGEDBRIE, 0, 0);
         items.add(item);
         GildedRose app = new GildedRose(items);
     	int i = 0;
