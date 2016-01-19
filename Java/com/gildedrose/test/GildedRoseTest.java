@@ -34,7 +34,6 @@ public class GildedRoseTest {
 		while (app.items.get(0).sellIn >= 0) {
 			app.updateQuality();
 			i = i - 1;
-			System.out.println(app.items.get(0).quality);
 			assertEquals(app.items.get(0).quality, i);
 		}
 		assertEquals(app.items.get(0).quality, 5);
@@ -113,7 +112,6 @@ public class GildedRoseTest {
 		while (app.items.get(0).sellIn > 0) {
 			app.updateQuality();
 			i = i + 3;			
-			System.out.println(app.items.get(0).quality);
 			assertEquals(app.items.get(0).quality, i);
 		}
 		app.updateQuality();
