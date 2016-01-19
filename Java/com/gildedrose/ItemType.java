@@ -2,7 +2,7 @@ package com.gildedrose;
 
 public enum ItemType {
 	GENERAL,
-	LEGENDARYITEM, 
+	LEGENDARY, 
 	AGEDBRIE,
 	BACKSTAGE_PASSES,
 	CONJURED

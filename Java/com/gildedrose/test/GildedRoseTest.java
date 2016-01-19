@@ -10,7 +10,6 @@ import org.junit.Test;
 import com.gildedrose.GildedRose;
 import com.gildedrose.ItemType;
 import com.gildedrose.ItemWithType;
-import com.gildedrose.shared.Item;
 
 public class GildedRoseTest {
 
