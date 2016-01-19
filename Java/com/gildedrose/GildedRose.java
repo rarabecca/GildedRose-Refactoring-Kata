@@ -3,6 +3,7 @@ package com.gildedrose;
 import java.util.List;
 
 public class GildedRose {
+	private static final int CONJURED_QUALITY_DECREASE_VALUE = 2;
 	private static final int BACKSTAGE_PASS_SECOND_QUALITY_JUMP = 5;
 	private static final int BACKSTAGE_PASS_FIRST_QUALITY_JUMP = 10;
 	private static final int MAX_QUALITY = 50;
@@ -48,7 +49,7 @@ public class GildedRose {
 	}
 
 	private void changeQualityForGeneralItem(ItemWithType item) {
-		
+
 		if (item.sellIn >= MIN_SELL_IN) {
 			item.quality = item.quality - 1;
 		} else if (item.sellIn < MIN_SELL_IN) {
@@ -61,7 +62,7 @@ public class GildedRose {
 	}
 
 	private void changeQualityForAgedBrie(ItemWithType item) {
-		
+
 		if (item.quality < MAX_QUALITY) {
 			item.quality = item.quality + 1;
 		}
@@ -69,20 +70,19 @@ public class GildedRose {
 
 	private void changeQualityForBackstagePasses(ItemWithType item) {
 		if (item.sellIn > MIN_SELL_IN) {
-			
-			if (item.sellIn <= BACKSTAGE_PASS_FIRST_QUALITY_JUMP) {
+
+			if (item.sellIn <= BACKSTAGE_PASS_FIRST_QUALITY_JUMP && item.sellIn > BACKSTAGE_PASS_SECOND_QUALITY_JUMP) {
 				item.quality = item.quality + 2;
-			}
-			if (item.sellIn <= BACKSTAGE_PASS_SECOND_QUALITY_JUMP) {
+			} else if (item.sellIn <= BACKSTAGE_PASS_SECOND_QUALITY_JUMP) {
 				item.quality = item.quality + 3;
 			} else {
 				item.quality = item.quality + 1;
 			}
-			
+
 			if (item.quality > MAX_QUALITY) {
 				item.quality = MAX_QUALITY;
 			}
-			
+
 		} else {
 			item.quality = MIN_QUALITY;
 		}
@@ -93,7 +93,11 @@ public class GildedRose {
 	}
 
 	private void changeQualityForConjuredItem(ItemWithType item) {
-		item.quality = item.quality - 2;
+		if (item.sellIn > MIN_SELL_IN) {
+			item.quality = item.quality - CONJURED_QUALITY_DECREASE_VALUE;
+		} else {
+			item.quality = item.quality - CONJURED_QUALITY_DECREASE_VALUE * 2;
+		}
 
 		if (item.quality < MIN_QUALITY) {
 			item.quality = MIN_QUALITY;
